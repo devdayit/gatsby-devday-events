@@ -6,6 +6,9 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import './layout.css'
 
+import favicon16 from '../images/favicon-16x16.png'
+import favicon32 from '../images/favicon-32x32.png'
+
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -24,6 +27,20 @@ const Layout = ({ children }) => (
           meta={[
             { name: 'description', content: 'DevDay Events' },
             { name: 'keywords', content: 'DevDay Events Calendar' },
+          ]}
+          link={[
+            {
+              rel: 'icon',
+              type: 'image/png',
+              sizes: '32x32',
+              href: '/favicon-32x32.png',
+            },
+            {
+              rel: 'icon',
+              type: 'image/png',
+              sizes: '16x16',
+              href: '/favicon-16x16.png',
+            },
           ]}
         >
           <html lang="it" />

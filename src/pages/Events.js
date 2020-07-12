@@ -5,8 +5,8 @@ import { connect } from 'react-refetch'
 import DateStart from '../components/DateStart'
 
 import fetch from 'isomorphic-fetch'
-import flatten from 'lodash/flatten'
 import sortBy from 'lodash/sortBy'
+import isEmpty from 'lodash/isEmpty'
 
 class Events extends Component {
   render() {
@@ -18,6 +18,15 @@ class Events extends Component {
 
     // eventsFetch.fulfilled
     const events = eventsFetch.value
+
+    if (isEmpty) {
+      return (
+        <div>
+          Al momento non risultano eventi in programma, consulta i nostri canali
+          tramite <a href="https://devday.it/#/">DevDay.it</a>
+        </div>
+      )
+    }
 
     return (
       <div>
@@ -72,10 +81,10 @@ class Events extends Component {
   }
 }
 
-export default connect.defaults({ fetch: fetch })(props => {
+export default connect.defaults({ fetch: fetch })((props) => {
   return {
     eventsFetch: {
-      url: 'https://meetupapi.netlify.com/.netlify/functions/proxy',
+      url: 'https://meetupapi.devday.it/.netlify/functions/proxy',
     },
   }
 })(Events)

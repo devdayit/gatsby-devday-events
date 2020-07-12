@@ -6,9 +6,6 @@ import { StaticQuery, graphql } from 'gatsby'
 import Header from './header'
 import './layout.css'
 
-import favicon16 from '../images/favicon-16x16.png'
-import favicon32 from '../images/favicon-32x32.png'
-
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
@@ -20,7 +17,7 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
         <Helmet
           title={data.site.siteMetadata.title}

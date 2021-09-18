@@ -19,7 +19,7 @@ class Events extends Component {
     // eventsFetch.fulfilled
     const events = eventsFetch.value
 
-    if (isEmpty) {
+    if (isEmpty(events)) {
       return (
         <div>
           Al momento non risultano eventi in programma, consulta i nostri canali
